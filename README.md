@@ -127,7 +127,7 @@ curl -k 'https://orionkeys-fgbwb0habgdrhyh4.canadacentral-01.azurewebsites.net/A
 
 **Curl (Windows CMD.exe — note escaping of `&`):**
 ```bat
-curl -k "https://orionkeys-fgbwb0habgdrhyh4.canadacentral-01.azurewebsites.net/API/derive?seed=0xAA,0xBB,0xCC^&key=IPC01"
+curl -k "https://orionkeys-fgbwb0habgdrhyh4.canadacentral-01.azurewebsites.net/API/derive?seed=0xAA,0xBB,0xCC&key=IPC01"
 ```
 
 **Portable form using `--get`:**
