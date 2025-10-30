@@ -41,14 +41,11 @@ OrionKeys is a public, security-conscious API that converts an **ECU Security Ac
 - [Quick Start](#quick-start)  
   - [GET `/api/derive`](#get-apiderive)  
   - [POST `/api/derive`](#post-apiderive)  
-  - [GET `/api/keys`](#get-apikeys)  
 - [Request & Response Schemas](#request--response-schemas)  
 - [Errors](#errors)  
 - [Usage Notes](#usage-notes)  
 - [Versioning & Stability](#versioning--stability)  
-- [Ethics, Safety & Legal](#ethics-safety--legal)  
 - [Contributing](#contributing)  
-- [License](#license)
 
 ---
 
