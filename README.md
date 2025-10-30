@@ -52,10 +52,9 @@ OrionKeys is a public, security-conscious API that converts an **ECU Security Ac
 
 ## What It Does
 
-- Accepts a **3-byte ECU seed** (e.g., from a UDS `0x67 0x11` positive response).  
-- Uses **ECU-specific secret material** stored **server-side** to compute the **response key**.  
+- Accepts a **3-byte ECU seed** (e.g., from a CGDS2003 `0x67 0x01` positive response).  
+- Uses **ECU-specific secret keys** stored **server-side** to compute the **response key**.  
 - Returns **only** the derived response (both `uint32` and hex string).  
-- **Never** returns or logs secret key material.
 
 Designed to integrate with J2534 tools, custom diagnostics, and service/engineering workflows.
 
@@ -69,7 +68,6 @@ Designed to integrate with J2534 tools, custom diagnostics, and service/engineer
   { "responseUInt32": 305419896, "responseHex": "0x12345678" }
   ```
 - Inputs are validated (seed length and byte range).  
-- Deploy behind HTTPS. Add rate limiting, authentication, and audit logs for production.
 
 ---
 
@@ -87,23 +85,15 @@ The API targets the FG Falcon platform modules, including:
 - Powertrain Control Module (PCM)  
 - Restraints Control Module (RCM)
 
-Use `/api/keys` to enumerate available **key names** (e.g., `IPC01`, `PCM01`, etc.). These are **identifiers**, not secrets.
+Use `https://orionkeys-fgbwb0habgdrhyh4.canadacentral-01.azurewebsites.net/API/keys` to enumerate available **key names** (e.g., `IPC01`, `PCM01`, etc.). These are **identifiers**, not secrets.
 
 ---
 
 ## Base URL
 
 ```
-https://<your-hostname>/
+https://orionkeys-fgbwb0habgdrhyh4.canadacentral-01.azurewebsites.net/API/
 ```
-
-During local development (ASP.NET Core defaults), you may see:
-
-```
-https://localhost:7047/
-```
-
-Swagger UI is enabled in `Development`.
 
 ---
 
@@ -121,17 +111,17 @@ Derive a response key from a 3-byte seed and a known key identifier.
 
 **Curl (PowerShell/Bash):**
 ```bash
-curl -k 'https://localhost:7047/api/derive?seed=AA,BB,CC&key=IPC01'
+curl -k 'https://orionkeys-fgbwb0habgdrhyh4.canadacentral-01.azurewebsites.net/API/derive?seed=AA,BB,CC&key=IPC01'
 ```
 
 **Curl (Windows CMD.exe — note escaping of `&`):**
 ```bat
-curl -k "https://localhost:7047/api/derive?seed=AA,BB,CC^&key=IPC01"
+curl -k "https://orionkeys-fgbwb0habgdrhyh4.canadacentral-01.azurewebsites.net/API/derive?seed=AA,BB,CC^&key=IPC01"
 ```
 
 **Portable form using `--get`:**
 ```bash
-curl -k --get https://localhost:7047/api/derive   --data-urlencode "seed=AA,BB,CC"   --data-urlencode "key=IPC01"
+curl -k --get https://orionkeys-fgbwb0habgdrhyh4.canadacentral-01.azurewebsites.net/API/derive   --data-urlencode "seed=AA,BB,CC"   --data-urlencode "key=IPC01"
 ```
 
 **Response 200**
@@ -161,7 +151,7 @@ Derive a response key using a JSON body.
 
 **Curl**
 ```bash
-curl -k -X POST 'https://localhost:7047/api/derive'   -H 'Content-Type: application/json'   -d '{"seed":[170,187,204],"key":"IPC01"}'
+curl -k -X POST 'https://orionkeys-fgbwb0habgdrhyh4.canadacentral-01.azurewebsites.net/API/derive'   -H 'Content-Type: application/json'   -d '{"seed":[170,187,204],"key":"IPC01"}'
 ```
 
 **Response 200**
@@ -180,7 +170,7 @@ List available **key names** (identifiers only), so clients can select the corre
 
 **Curl**
 ```bash
-curl -k 'https://localhost:7047/api/keys'
+curl -k 'https://orionkeys-fgbwb0habgdrhyh4.canadacentral-01.azurewebsites.net/API/keys'
 ```
 
 **Response 200**
@@ -257,16 +247,6 @@ Common messages:
 - `Key name is required.`  
 - `Unknown key '<name>'. Use /api/keys for options.`
 
----
-
-## Usage Notes
-
-- **Windows CMD** treats `&` as a command separator. Escape with `^&` or wrap the URL in quotes as shown above.
-- In development, the sample uses HTTPS with a dev certificate. Use `-k` for curl, or trust the certificate locally.
-- Seeds are **3 bytes only**. If your transport yields other sizes, extract the 3-byte UDS Security Access seed from the positive response payload.
-- The API returns **only** the derived response; it **never** returns secret key bytes.
-
----
 
 ## Versioning & Stability
 
@@ -281,10 +261,7 @@ Common messages:
 
 ## Contributing
 
-Issues and PRs that improve documentation, validation, observability, or deployment hardening are welcome. For security-related reports, please disclose privately first.
+Issues and PRs that improve documentation, validation, observability, or deployment hardening are welcome.
 
 ---
 
-## License
-
-This repository’s code and documentation are provided under an open-source license (see `LICENSE`). Use of the running service may be subject to additional terms by the operator.
