@@ -122,17 +122,17 @@ Derive a response key from a 3-byte seed and a known key identifier.
 
 **Curl (PowerShell/Bash):**
 ```bash
-curl -k 'https://orionkeys-fgbwb0habgdrhyh4.canadacentral-01.azurewebsites.net/API/derive?seed=AA,BB,CC&key=IPC01'
+curl -k 'https://orionkeys-fgbwb0habgdrhyh4.canadacentral-01.azurewebsites.net/API/derive?seed=0xAA,0xBB,0xCC&key=IPC01'
 ```
 
 **Curl (Windows CMD.exe — note escaping of `&`):**
 ```bat
-curl -k "https://orionkeys-fgbwb0habgdrhyh4.canadacentral-01.azurewebsites.net/API/derive?seed=AA,BB,CC^&key=IPC01"
+curl -k "https://orionkeys-fgbwb0habgdrhyh4.canadacentral-01.azurewebsites.net/API/derive?seed=0xAA,0xBB,0xCC^&key=IPC01"
 ```
 
 **Portable form using `--get`:**
 ```bash
-curl -k --get https://orionkeys-fgbwb0habgdrhyh4.canadacentral-01.azurewebsites.net/API/derive   --data-urlencode "seed=AA,BB,CC"   --data-urlencode "key=IPC01"
+curl -k --get https://orionkeys-fgbwb0habgdrhyh4.canadacentral-01.azurewebsites.net/API/derive   --data-urlencode "seed=0xAA,0xBB,0xCC"   --data-urlencode "key=IPC01"
 ```
 
 **Response 200**
