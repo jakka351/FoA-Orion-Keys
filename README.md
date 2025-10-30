@@ -26,7 +26,7 @@ Public API for the generation of response keys for 0x27 Security Access on Ford 
 
 OrionKeys is a public, security-conscious API that converts an **ECU Security Access seed** into the **correct response key** for Ford FG Falcon control modules. This enables diagnostics, service workflows, and healthy aftermarket tooling—so these vehicles can stay useful, safe, and enjoyable for years to come.
 
-> **Mission:** Extend the life of FG Falcon vehicles by enabling compatible, lawful software and tools. By publishing a clear, secure, and stable API for seed→response derivation, we reduce lock-in, encourage maintenance and innovation, and help owners and repairers keep cars on the road rather than in the scrap yard.
+> **Mission:** Extend the life of FG Falcon vehicles by enabling compatible, diagnostic software and tools. By publishing a clear, secure, and stable API for seed→response derivation, we encourage maintenance and innovation, and help owners and repairers keep cars on the road rather than in the scrap yard.
 
 ---
 
