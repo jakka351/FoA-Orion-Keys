@@ -8,9 +8,6 @@
                                The Ford FG Falcon (FoA Orion) Secret Keys API
 
 
-<sup>
-
-<br/></sup>
 
 ![image](https://user-images.githubusercontent.com/57064943/163714778-8598c24a-6ae2-49f6-ba4c-42de94dfa025.png)
 
@@ -19,7 +16,10 @@
 
 ## Public Seed/Key Derivation API for Ford FG Falcon ECUs
 
-OrionKeys is a public, security-conscious API that converts an **ECU Security Access seed** into the **correct response key** for Ford FG Falcon control modules. This enables diagnostics, service workflows, and healthy aftermarket tooling—so these vehicles can stay useful, safe, and enjoyable for years to come.
+OrionKeys is a public, security-conscious API that converts an **ECU Security Access seed** into the **correct response key** for Ford FG Falcon control modules. This enables diagnostics, service workflows, and healthy aftermarket tooling—so these vehicles can stay useful, safe, and enjoyable for years to come.  
+
+
+    
 
 > **Mission:** Extend the life of FG Falcon vehicles by enabling compatible, diagnostic software and tools. By publishing a clear, secure, and stable API for seed→response derivation, we encourage maintenance and innovation, and help owners and repairers keep cars on the road rather than in the scrap yard.
 
