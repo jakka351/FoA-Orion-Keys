@@ -85,8 +85,6 @@ The API targets the FG Falcon platform modules, including:
 - Powertrain Control Module (PCM)  
 - Restraints Control Module (RCM)
 
-Use `https://orionkeys-fgbwb0habgdrhyh4.canadacentral-01.azurewebsites.net/API/keys` to enumerate available **key names** (e.g., `IPC01`, `PCM01`, etc.). These are **identifiers**, not secrets.
-
 ---
 
 ## Base URL
@@ -147,7 +145,6 @@ Derive a response key using a JSON body.
 ```
 
 - `seed` — array of exactly 3 integers, each `0..255`  
-- `key` — key name (see `/api/keys`)
 
 **Curl**
 ```bash
@@ -161,24 +158,6 @@ curl -k -X POST 'https://orionkeys-fgbwb0habgdrhyh4.canadacentral-01.azurewebsit
   "responseHex": "0x12345678"
 }
 ```
-
----
-
-### GET `/api/keys`
-
-List available **key names** (identifiers only), so clients can select the correct ECU family.
-
-**Curl**
-```bash
-curl -k 'https://orionkeys-fgbwb0habgdrhyh4.canadacentral-01.azurewebsites.net/API/keys'
-```
-
-**Response 200**
-```json
-["IPC01", "PCM01", "BEM01", "TCM01", "FDIM01", "ACM01", "AIM01", "BPM01", "IC01", "RCM01"]
-```
-
-*(The exact set depends on your server’s `KeyStore` contents.)*
 
 ---
 
@@ -253,7 +232,6 @@ Common messages:
 - Minimal endpoints intended to remain stable:
   - `GET /api/derive`
   - `POST /api/derive`
-  - `GET /api/keys`
 - Backward-compatible enhancements may add headers, metadata, or auth without breaking existing clients.
 - Track changes via release tags and changelog.
 
