@@ -1,7 +1,7 @@
 
 # `FoA Orion Secret Keys API`
 
-<img width="1920" height="1037" alt="image" src="https://github.com/user-attachments/assets/ade30704-2079-4680-a2bb-7eab3dac4636" />
+<img width="40%" height="40%" alt="image" src="https://github.com/user-attachments/assets/ade30704-2079-4680-a2bb-7eab3dac4636" />
 <br/><br/>
   
 
