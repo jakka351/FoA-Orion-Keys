@@ -197,13 +197,6 @@ Derive a response key using a JSON body.
   { "error": "Key name is required." }
   ```
 
-### `GET /api/keys`
-
-- **200 OK**
-  ```json
-  ["IPC01", "PCM01", "..."]
-  ```
-
 ---
 
 ## Errors
