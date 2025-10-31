@@ -38,7 +38,6 @@ OrionKeys is a public, security-conscious API that converts an **ECU Security Ac
   - [POST `/api/derive`](#post-apiderive)  
 - [Request & Response Schemas](#request--response-schemas)  
 - [Errors](#errors)  
-- [Usage Notes](#usage-notes)  
 - [Versioning & Stability](#versioning--stability)  
 - [Contributing](#contributing)  
 
@@ -82,21 +81,19 @@ The API targets the FG Falcon platform modules, including:
 ---
 
 ## Available Secret Keys  
-Available Secret Keys are:  
-  
-`
-AIM01  
-ACM01  
-BEM01    
-BEM03  
-BPM01  
-FDIM01  
-IPC01  
-VDO01  
-RCM01  
-PCM01  
-TCM0  
-`  
+Use the `keyName` to select which module and level of access you want.    
+
+`AIM01` Audio Interface Module Level 1 Key   
+`ACM01` Audio Control Module Level 1 Key  
+`BEM01` Body Electronic Module Level 1 Key  
+`BEM03` Body Electronic Module Level 3 Key  
+`BPM01` Bluetooth Phone Module Level 1 Key  
+`FDIM01` Front Display Interface Module Level 1 Key  
+`IPC01` Instrument Cluster Level 1 Key    
+`VDO01` Instrument Cluster VDO 0x10FA Key  
+`RCM01` Restraints Control Module Level 1 Ley  
+`PCM01` Powertrain Control Module Level 1 Key  
+`TCM01` Transmission Control Module Level 1 Key   
 
 ---
 
@@ -116,23 +113,18 @@ Derive a response key from a 3-byte seed and a known key identifier.
 
 **Query Parameters**
 
-- `seed` — Comma-separated 3 bytes. Each byte may be decimal (`18`) or hex (`0x12`, `AA`).  
+- `seed` — Comma-separated 3 bytes. Each byte may be decimal (`18`) or hex (`0x12`).  
   Examples: `seed=0x12,0x34,0x56` or `seed=18,52,86` or `seed=AA,BB,CC`.  
-- `key` — A known key name (e.g., `IPC01`). Discover via `/api/keys`.
+- `key` — A known key name (e.g., `IPC01`). See Available Secret Keys
 
 **Curl (PowerShell/Bash):**
 ```bash
 curl -k 'https://orionkeys-fgbwb0habgdrhyh4.canadacentral-01.azurewebsites.net/API/derive?seed=0xAA,0xBB,0xCC&key=IPC01'
 ```
 
-**Curl (Windows CMD.exe — note escaping of `&`):**
+**Curl (Windows CMD.exe):**
 ```bat
 curl -k "https://orionkeys-fgbwb0habgdrhyh4.canadacentral-01.azurewebsites.net/API/derive?seed=0xAA,0xBB,0xCC&key=IPC01"
-```
-
-**Portable form using `--get`:**
-```bash
-curl -k --get https://orionkeys-fgbwb0habgdrhyh4.canadacentral-01.azurewebsites.net/API/derive   --data-urlencode "seed=0xAA,0xBB,0xCC"   --data-urlencode "key=IPC01"
 ```
 
 **Response 200**
@@ -158,20 +150,6 @@ Derive a response key using a JSON body.
 ```
 
 - `seed` — array of exactly 3 integers, each `0..255`  
-
-**Curl**
-```bash
-curl -k -X POST 'https://orionkeys-fgbwb0habgdrhyh4.canadacentral-01.azurewebsites.net/API/derive'   -H 'Content-Type: application/json'   -d '{"seed":[170,187,204],"key":"IPC01"}'
-```
-
-**Response 200**
-```json
-{
-  "responseUInt32": 305419896,
-  "responseHex": "0x12345678"
-}
-```
-
 ---
 
 ## Request & Response Schemas
@@ -237,7 +215,7 @@ Common messages:
 - `Seed bytes must be 0..255.`  
 - `Invalid seed format: <details>`  
 - `Key name is required.`  
-- `Unknown key '<name>'. Use /api/keys for options.`
+- `Unknown key '<name>'.`
 
 
 ## Versioning & Stability
@@ -247,7 +225,7 @@ Common messages:
   - `POST /api/derive`
 - Backward-compatible enhancements may add headers, metadata, or auth without breaking existing clients.
 - Track changes via release tags and changelog.
-
+- More Models may be added in future.
 ---
 
 ## Contributing
