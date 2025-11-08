@@ -31,6 +31,8 @@ OrionKeys is a public, security-conscious API that converts an **ECU Security Ac
 ---
 
 
+<img align="right" src="https://user-images.githubusercontent.com/57064943/163706907-48fcd541-6998-42c8-a673-b33784e09128.png" height="25%" width="25%" /></p>
+
 
 ## Table of Contents
 
@@ -48,6 +50,8 @@ OrionKeys is a public, security-conscious API that converts an **ECU Security Ac
 
 ---
 
+<img src="https://user-images.githubusercontent.com/57064943/166141713-08ef10eb-26ea-45d1-94ad-ad35968772ff.png" align="right" height="15%" width="20%" />  
+
 ## What It Does
 
 - Accepts a **3-byte ECU seed** (e.g., from a CGDS2003 `0x67 0x01` positive response).  
@@ -57,6 +61,8 @@ OrionKeys is a public, security-conscious API that converts an **ECU Security Ac
 Designed to integrate with J2534 tools, custom diagnostics, and service/engineering workflows.
 
 ---
+
+<img align="right" src="https://user-images.githubusercontent.com/57064943/165017526-8ecc6cf9-2e2e-43f2-8f25-713441db2dd6.png" height="30%" width="30%"/>
 
 ## Security Model
 
@@ -68,6 +74,9 @@ Designed to integrate with J2534 tools, custom diagnostics, and service/engineer
 - Inputs are validated (seed length and byte range).  
 
 ---
+
+<img align="right" src="https://user-images.githubusercontent.com/57064943/166146149-194cba07-3baa-46d2-b5f0-cfa753d52178.png" height="20%" width="20%"/>
+
 
 ## Supported ECUs
 
@@ -85,6 +94,9 @@ The API targets the FG Falcon platform modules, including:
 
 ---
 
+<img align="right" src="https://user-images.githubusercontent.com/57064943/166143780-9685fc0f-eeac-4459-9320-abc607407b39.png" height="15%" width="15%"/>
+
+
 ## Available Secret Keys  
 Use the `keyName` to select which module and level of access you want.    
 
@@ -101,6 +113,9 @@ Use the `keyName` to select which module and level of access you want.
 `TCM01` Transmission Control Module Level 1 Key   
 
 ---
+
+<img align="right" src="https://raw.githubusercontent.com/jakka351/FG-Falcon/master/resources/CANBUSCOMAUQUOTE_html_4af13c7f15bbb0da.png" alt="EFFGEE">
+
 
 ## Base URL
 
