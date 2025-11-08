@@ -1,6 +1,5 @@
-<img width="30%" height="30%" alt="ORION" align="right" src="https://github.com/user-attachments/assets/ade30704-2079-4680-a2bb-7eab3dac4636" />  
-   
-# `FoA Orion Secret Keys API`
+
+# `FoA Orion Keys API`
 
 
 <br/><br/>
@@ -14,6 +13,9 @@
 
 
 <img align="right" src="https://raw.githubusercontent.com/jakka351/FG-Falcon/master/resources/images/super-roo.png" height="20%" width="20%"/>
+
+
+![GS_enginebay-1](https://github.com/user-attachments/assets/169cdcbb-71cc-4cc3-8c09-dc07c6a57485)
 
 ## Public Seed/Key Derivation API for Ford FG Falcon ECUs
 
