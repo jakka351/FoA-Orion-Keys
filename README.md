@@ -244,3 +244,7 @@ Issues and PRs that improve documentation, validation, observability, or deploym
 
 ---
 
+
+## Usage Examples 
+API Usage Examples are available in the `Examples` folder. Both a `C#` and a `python` example are available.  
+
