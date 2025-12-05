@@ -1,4 +1,3 @@
-
 # FoA Orion Keys API
   
 
@@ -97,17 +96,45 @@ The API targets the FG Falcon platform modules, including:
 ## Available Secret Keys  
 Use the `keyName` to select which module and level of access you want.    
 
-`AIM01` Audio Interface Module Level 1 Key   
-`ACM01` Audio Control Module Level 1 Key  
-`BEM01` Body Electronic Module Level 1 Key  
-`BEM03` Body Electronic Module Level 3 Key  
-`BPM01` Bluetooth Phone Module Level 1 Key  
-`FDIM01` Front Display Interface Module Level 1 Key  
-`IPC01` Instrument Cluster Level 1 Key    
-`VDO01` Instrument Cluster VDO 0x10FA Key  
-`RCM01` Restraints Control Module Level 1 Ley  
-`PCM01` Powertrain Control Module Level 1 Key  
-`TCM01` Transmission Control Module Level 1 Key   
+### FG Falcon Keys
+
+| Key Name | Description |
+|----------|-------------|
+| `AIM01` | Audio Interface Module Level 1 Key |
+| `ACM01` | Audio Control Module Level 1 Key |
+| `BEM01` | Body Electronic Module Level 1 Key |
+| `BEM03` | Body Electronic Module Level 3 Key |
+| `BPM01` | Bluetooth Phone Module Level 1 Key |
+| `FDIM01` | Front Display Interface Module Level 1 Key |
+| `IPC01` | Instrument Cluster Level 1 Key |
+| `VDO01` | Instrument Cluster VDO 0x10FA Key |
+| `RCM01` | Restraints Control Module Level 1 Key |
+| `PCM01` | Powertrain Control Module Level 1 Key |
+| `TCM01` | Transmission Control Module Level 1 Key |
+
+### MK2 ICC Keys
+
+| Key Name | Description |
+|----------|-------------|
+| `MK2IPC01` | MK2 Instrument Cluster Level 1 Key |
+| `MK2IPC02` | MK2 Instrument Cluster Level 2 Key |
+| `MK2IPC03` | MK2 Instrument Cluster Level 3 Key |
+| `MK2FDIM01` | MK2 Front Display Interface Module Level 1 Key |
+| `MK2FDIMFA` | MK2 Front Display Interface Module 0xFA Key |
+
+---
+
+## Cross-Platform Compatibility
+
+The following keys are compatible across multiple Ford Falcon platforms:
+
+| Key | BA | BF | FG | FGII | FGX |
+|-----|:--:|:--:|:--:|:----:|:---:|
+| `PCM01` | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `TCM01` | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `RCM01` | ✓ | ✓ | ✓ | ✓ | ✓ |
+
+> **Note:** PCM, TCM, and RCM modules share common seed/key algorithms across the BA, BF, FG, FGII, and FGX Falcon series.
 
 ---
 
@@ -246,5 +273,4 @@ Issues and PRs that improve documentation, validation, observability, or deploym
 
 
 ## Usage Examples 
-API Usage Examples are available in the `Examples` folder. Both a `C#` and a `python` example are available.  
-
+API Usage Examples are available in the `Examples` folder. Both a `C#` and a `python` example are available.
